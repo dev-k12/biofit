@@ -7,7 +7,7 @@ TASKS = {
     "easy": {
         "client_profile": {
             "age": 25, 
-            "weight": 70, 
+            "weight_kg": 70,  # <--- Changed to weight_kg
             "goal": "weight loss", 
             "injuries": [], 
             "equipment": ["dumbbells"]
@@ -16,7 +16,7 @@ TASKS = {
     "medium": {
         "client_profile": {
             "age": 35, 
-            "weight": 85, 
+            "weight_kg": 85,  # <--- Changed to weight_kg
             "goal": "muscle gain", 
             "injuries": ["lower back pain"], 
             "equipment": ["dumbbells", "barbell"]
@@ -25,7 +25,7 @@ TASKS = {
     "hard": {
         "client_profile": {
             "age": 45, 
-            "weight": 95, 
+            "weight_kg": 95,  # <--- Changed to weight_kg
             "goal": "endurance", 
             "injuries": ["knee", "shoulder"], 
             "equipment": ["none"]
