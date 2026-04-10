@@ -1,0 +1,64 @@
+name: BioFit
+version: 1.0.0
+description: >
+  An AI-powered fitness prescription environment where an agent
+  receives a client profile (age, weight, goal, injuries, equipment)
+  and must prescribe a safe, personalized workout plan.
+  Graded on safety, goal alignment, and exercise variety.
+
+author: thedev12
+domain: fitness
+difficulty_levels:
+  - easy
+  - medium
+  - hard
+
+endpoints:
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+
+action_space:
+  type: object
+  properties:
+    workout_plan:
+      type: array
+      items:
+        type: string
+      description: List of exercises prescribed for the client
+
+observation_space:
+  type: object
+  properties:
+    client_profile:
+      type: object
+      description: Age, weight, goal, injuries, equipment
+    feedback:
+      type: string
+      description: Environment feedback after each step
+    step_number:
+      type: integer
+      description: Current step in the episode
+
+reward:
+  type: float
+  range: [0.0, 1.0]
+  description: >
+    Partial reward based on exercise appropriateness,
+    goal alignment, injury safety, and plan variety.
+
+tasks:
+  - name: Easy — Weight Loss Client
+    difficulty: easy
+    description: 25yo client wants weight loss, has dumbbells, no injuries
+  - name: Medium — Muscle Gain with Back Pain
+    difficulty: medium
+    description: 35yo client wants muscle gain, has back pain, dumbbells + barbell
+  - name: Hard — Endurance with Multiple Injuries
+    difficulty: hard
+    description: 45yo client wants endurance, knee + shoulder injuries, no equipment
+
+docker:
+  image: biofit
+  port: 7860
+  command: uvicorn server.app:app --host 0.0.0.0 --port 7860
