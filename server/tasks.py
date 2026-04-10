@@ -33,10 +33,13 @@ TASKS = {
     }
 }
 
+def get_task(difficulty: str) -> dict:
+    """Returns the task for the given difficulty level."""
+    return TASKS.get(difficulty.lower(), TASKS["easy"])
+
 def get_client_profile(difficulty: str) -> dict:
     """Returns the client profile for the given difficulty level."""
-    # Default to easy if an unknown difficulty is passed
-    task = TASKS.get(difficulty.lower(), TASKS["easy"])
+    task = get_task(difficulty)
     return task["client_profile"]
 
 def grade_action(client_profile: dict, action) -> float:
