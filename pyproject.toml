@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.scripts]
-biofit-server = "server.app:app"
+biofit-server = "server.app:main"
 
 [tool.uv]
 managed = true
