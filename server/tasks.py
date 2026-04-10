@@ -7,7 +7,7 @@ TASKS = {
     "easy": {
         "client_profile": {
             "age": 25, 
-            "weight_kg": 70,  # <--- Changed to weight_kg
+            "weight_kg": 70,  
             "goal": "weight loss", 
             "injuries": [], 
             "equipment": ["dumbbells"]
@@ -16,7 +16,7 @@ TASKS = {
     "medium": {
         "client_profile": {
             "age": 35, 
-            "weight_kg": 85,  # <--- Changed to weight_kg
+            "weight_kg": 85, 
             "goal": "muscle gain", 
             "injuries": ["lower back pain"], 
             "equipment": ["dumbbells", "barbell"]
@@ -25,7 +25,7 @@ TASKS = {
     "hard": {
         "client_profile": {
             "age": 45, 
-            "weight_kg": 95,  # <--- Changed to weight_kg
+            "weight_kg": 95,  
             "goal": "endurance", 
             "injuries": ["knee", "shoulder"], 
             "equipment": ["none"]
@@ -100,7 +100,7 @@ def grade_action(client_profile: dict, action) -> float:
             score -= 0.2
 
     # ---------------------------------------------------------
-    # THE CRITICAL PHASE 2 FIX
+    
     # Force the score strictly into the (0, 1) range
     # ---------------------------------------------------------
     return max(0.01, min(0.99, float(score)))
